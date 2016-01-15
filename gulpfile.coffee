@@ -24,6 +24,14 @@ gulp.task 'js', =>
   gulp.src src.js
     .pipe gulp.dest dist.js
 
+gulp.task 'css', =>
+  gulp.src "src/css/*.css"
+    .pipe gulp.dest "dist/css"
+
+gulp.task 'img', =>
+  gulp.src "src/img/*"
+    .pipe gulp.dest "dist/img"
+
 
 gulp.task 'webserver', =>
   gulp.src 'dist'
@@ -35,9 +43,11 @@ gulp.task 'webserver', =>
 gulp.task 'watch', =>
   gulp.watch(src.jade, ['jade'])
   gulp.watch(src.js, ['js'])
+  gulp.watch("src/css/*.css", ['css'])
+  gulp.watch("src/img/*", ['img'])
 
 gulp.task 'deploy', =>
   gulp.src 'dist/**/*'
     .pipe ghPages()
 
-gulp.task 'default' ,['js', 'jade', 'webserver', 'watch']
+gulp.task 'default' ,['js', 'jade', "css", "img", 'webserver', 'watch']

@@ -2,12 +2,33 @@ extends layout
 
 block content
   section.container
-    h1 バルス
-    
-    div.row
+  
+    div#main.row
       div.col-md-6.col-md-offset-3
-        p バルス！！！
-        img#target-img.hide(src="https://pbs.twimg.com/profile_images/1654571888/NinnikuOuji.jpg")
-      
-      
+        h1 バルス
+        p Chromeのみ対応しています。他のブラウザはうごないよ！
+  
+  section.container-fixed
+    div.panel
+      div.panel-in
+        div.panel-main.col-md-6.col-md-offset-3
+          div.media
+            div.media-left
+              img(src="img/pazu.jpg")
+            div.media-body
+              p#message シータ、落ち着いてよく聞くんだ。<br>あの言葉を教えて。ぼくも一緒に言う。
+          
+          p
+            a#bals-btn.btn.btn-primary 呪文を唱える！
+            
+          img#target-img.hide(src="https://pbs.twimg.com/profile_images/1654571888/NinnikuOuji.jpg")
+          
+          p
+            a#tweet-btn.btn.btn-default.hide(src="https://twitter.com/intent/tweet",target="_blank") ツイート
+          div.media
+            div.media-body
+            
+            
+              
+  script(src="js/jquery.textAnimation.min.js")
   script(src="js/app.js")
