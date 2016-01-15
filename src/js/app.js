@@ -1,13 +1,13 @@
 $(function(){
   window.AudioContext = window.AudioContext || window.webkitAudioContext;
 
-  var soundBuffer = null;
+  var soundBuffers = [];
   // Fix up prefixing
   window.AudioContext = window.AudioContext || window.webkitAudioContext;
   var context = new AudioContext();
 
 
-  function loadDogSound(path) {
+  function loadDogSound(path, key) {
     var url = location.origin + location.pathname + path;
 
     var request = new XMLHttpRequest();
@@ -17,7 +17,7 @@ $(function(){
     // Decode asynchronously
     request.onload = function() {
       context.decodeAudioData(request.response, function(buffer) {
-        soundBuffer = buffer;
+        soundBuffers[key] = buffer;
       }, function(){});
     }
     request.send();
@@ -40,7 +40,7 @@ $(function(){
     var params = {
       url: "http://tavii.github.io/bals/",
       text: text,
-      hashtags: "#バルス #さけぶ"
+      hashtags: "バルス #さけぶ #ラピュタ"
     };
 
     var param = $.param(params);
@@ -77,8 +77,14 @@ $(function(){
   ]
 
   var randnum = Math.floor( Math.random() * 4 );
-  var answer = answers[randnum];
-  loadDogSound(answer.audio);
+
+
+
+  loadDogSound(answers[0].audio, 0);
+  loadDogSound(answers[1].audio, 1);
+  loadDogSound(answers[2].audio, 2);
+  loadDogSound(answers[3].audio, 3);
+  loadDogSound(answers[4].audio, 4);
 
 
   $('#bals-btn').on('click',function(){
@@ -89,32 +95,28 @@ $(function(){
 
   // input
   recognition.addEventListener('result', function(event){
-    var a = 'バルス'
+    var a = "バルス";
     var input = event.results.item(0).item(0).transcript;
 
     if (a == input) {
-
-      playSound(soundBuffer);
-      $('#target-img').attr('src', answer.image);
-
-      $('#target-img').removeClass('hide');
-      $('#tweet-btn').removeClass('hide');
-
-
-      tweet('パソコンに向かって「バルス」を叫ぼう！');
-
-      var target = document.getElementById("tweet-btn");
-    // target.click();
-
-      runFlash();
-
+      randnum = 4;
     }
+    var answer = answers[randnum];
+    playSound(soundBuffers[randnum]);
+    $('#target-img').attr('src', answer.image);
+    tweet('パソコンに向かって「バルス」を叫ぼう！');
+    $('#result').removeClass('hide');
+    $('#bals-btn').attr('disabled', false);
 
   });
 
   $('#message').textAnimation({
     speed: 200,
     delay: 100
+  });
+
+  $('#resound').on('click',function(){
+      playSound(soundBuffers[randnum]);
   });
 
 });

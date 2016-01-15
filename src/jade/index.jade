@@ -17,20 +17,28 @@ block content
               img(src="img/pazu.jpg")
             div.media-body
               p#message シータ、落ち着いてよく聞くんだ。<br>あの言葉を教えて。ぼくも一緒に言う。
-          
           p
             a#bals-btn.btn.btn-primary 呪文を唱える！
             span.hide 　PCのマイクに向かって「バルス」と叫ぼう！
           
-          p.text-center  
-            img#target-img.hide(src="")
-          
-          p.text-center
-            a#tweet-btn.btn.btn-danger.btn-lg.hide(src="https://twitter.com/intent/tweet",target="_blank") Twitterでつぶやく
-          div.media
-            div.media-body
+          div#result.hide
             
+            p.text-center  
+              img#target-img(src="")
             
+            p.text-center
+              a#tweet-btn.btn.btn-danger.btn-lg(src="https://twitter.com/intent/tweet",target="_blank") Twitterでつぶやく
+            p.text-center
+              span#resound.glyphicon.glyphicon-play.btn.btn-default.btn-xs もう一度聞く！
+            p.text-center
+              a(href="http://gotrip.jp/2015/06/19060/", target="_blank") 「まるでラピュタの世界。ジャングルに埋もれた神秘的な遺跡、タプローム - GOTRIP!」
+  
+  section.container-fixed
+    div.row
+      div.panel-main.col-md-6.col-md-offset-3
+        hr
+        p
+          a(href="http://tavii.co.jp/", target="_blank") タビィコム株式会社
               
   script(src="js/jquery.textAnimation.min.js")
   script(src="js/app.js")
