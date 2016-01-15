@@ -69,6 +69,10 @@ $(function(){
     {
       image: "img/4.jpg",
       audio: "audio/4.mp3"
+    },
+    {
+      image: "img/5.jpg",
+      audio: "audio/5.mp3"
     }
   ]
 
