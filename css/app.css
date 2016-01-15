@@ -1,0 +1,55 @@
+
+/*.container {
+  background-color: #fff;
+}*/
+
+#main {
+  padding-top:130px;
+}
+
+#message {
+  font-size: 1.5em;
+  color: black;
+}
+
+
+*::before,
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.panel-in::before,
+.panel {
+    background: url("../img/back.jpg") no-repeat center;
+    -webkit-background-size: cover;
+    background-size: cover;
+    height: 800px;
+}
+.panel {
+    position: relative;
+}
+.panel-in::before {
+    content: "";
+    position: absolute;
+    background-clip: content-box;
+    width: 100%;
+    height: 100%;
+    padding: 30px;
+    top: 0;
+    left: 0;
+    -webkit-filter: blur(10px);
+    filter: blur(10px);
+}
+.panel-in {
+    padding: 30px;
+    position: relative;
+}
+.panel-main {
+    padding: 30px;
+    z-index: 30;
+    position: relative;
+    margin-bottom: 0;
+    border: solid 1px rgba(255,255,255,0.4);
+    background: rgba(255,255,255,0.4);
+}
