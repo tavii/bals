@@ -76,9 +76,7 @@ $(function(){
     }
   ]
 
-  var randnum = Math.floor( Math.random() * 4 );
-
-
+  var randnum = null;
 
   loadDogSound(answers[0].audio, 0);
   loadDogSound(answers[1].audio, 1);
@@ -97,15 +95,18 @@ $(function(){
   recognition.addEventListener('result', function(event){
     var a = "バルス";
     var input = event.results.item(0).item(0).transcript;
+    randnum = Math.floor( Math.random() * 4 );
 
     if (a == input) {
       randnum = 4;
     }
+    console.log(randnum);
     var answer = answers[randnum];
     playSound(soundBuffers[randnum]);
     $('#target-img').attr('src', answer.image);
     tweet('パソコンに向かって「バルス」を叫ぼう！');
     $('#result').removeClass('hide');
+    $('#bals-btn').attr('disabled', false);
 
   });
 
