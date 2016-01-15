@@ -32,6 +32,9 @@ gulp.task 'img', =>
   gulp.src "src/img/*"
     .pipe gulp.dest "dist/img"
 
+gulp.task 'audio', =>
+  gulp.src "src/audio/*"
+    .pipe gulp.dest "dist/audio"
 
 gulp.task 'webserver', =>
   gulp.src 'dist'
@@ -45,9 +48,10 @@ gulp.task 'watch', =>
   gulp.watch(src.js, ['js'])
   gulp.watch("src/css/*.css", ['css'])
   gulp.watch("src/img/*", ['img'])
+  gulp.watch("src/audio/*", ['audio'])
 
 gulp.task 'deploy', =>
   gulp.src 'dist/**/*'
     .pipe ghPages()
 
-gulp.task 'default' ,['js', 'jade', "css", "img", 'webserver', 'watch']
+gulp.task 'default' ,['js', 'jade', "css", "img", "audio", 'webserver', 'watch']
