@@ -35,15 +35,16 @@
     background-clip: content-box;
     width: 100%;
     height: 100%;
-    padding: 30px;
+    padding: 0;
+    margin: 0;
     top: 0;
     left: 0;
-    -webkit-filter: blur(10px);
-    filter: blur(10px);
+    /*-webkit-filter: blur(10px);*/
+    /*filter: blur(10px);*/
 }
 .panel-in {
     padding: 30px;
-    position: relative;
+    /*position: relative;*/
 }
 .panel-main {
     padding: 30px;
@@ -51,5 +52,5 @@
     position: relative;
     margin-bottom: 0;
     border: solid 1px rgba(255,255,255,0.4);
-    background: rgba(255,255,255,0.4);
+    background: rgba(255,255,255,0.8);
 }

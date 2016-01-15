@@ -10,7 +10,7 @@ $(function(){
     var params = {
       url: "http://tavii.github.io/bals/",
       text: text,
-      hashtags: "test"
+      hashtags: "#バルス #さけぶ"
     };
 
     var param = $.param(params);
@@ -22,10 +22,12 @@ $(function(){
     $("#target-img").css("filter", "alpha(opacity=10)");
     $("#target-img").fadeTo("middle", 1.0);
   }
-
+  
 
   $('#bals-btn').on('click',function(){
     recognition.start();
+    $(this).parent().find('span').removeClass('hide');
+    $('#bals-btn').attr('disabled', true);
   });
 
   // input
@@ -34,11 +36,10 @@ $(function(){
     var input = event.results.item(0).item(0).transcript;
 
     if (a == input) {
-      console.log("bal");
 
       $('#target-img').removeClass('hide');
       $('#tweet-btn').removeClass('hide');
-      tweet('test');
+      tweet('パソコンに向かって「バルス」を叫ぼう！');
 
       var target = document.getElementById("tweet-btn");
     // target.click();
